@@ -10,33 +10,38 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet var signInButton: UIButton!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     var url: NSURL?
     var redirectedTo: NSURL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.signInButton.enabled = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func signInTapped(sender: AnyObject) {
-//        self.performSegueWithIdentifier("showWebViewController", sender: self)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationView = segue.destinationViewController
+        
+        if let viewController = destinationView as? WebViewController {
+            viewController.url = self.url
+        } else if let viewController = destinationView as? MainViewController {
+            viewController.loginView(self, didReceiveCode: self.redirectedTo!)
+        }
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let destinationView = segue.destinationViewController
-//        let segueIdentifier = segue.identifier
-//        if let viewController = destinationView as? WebViewController where segueIdentifier! == "showWebViewController" {
-//            viewController.url = NSURL(string: "https://saturn-five.github.io/trakty_redirect.html")! //url
-//        }
+    @IBAction func unwindToLoginView(segue: UIStoryboardSegue) {
+        if let _ = self.redirectedTo {
+            self.signInButton.enabled = false
+            self.activityIndicator.startAnimating()
+
+            self.performSegueWithIdentifier("hideLoginViewController", sender: self)
+        }
     }
-//    
-//    @IBAction func unwindToLoginView(segue: UIStoryboardSegue) {
-//        if let _ = self.redirectedTo {
-//            self.performSegueWithIdentifier("hideLoginViewController", sender: self)
-//        }
-//    }
     
 }

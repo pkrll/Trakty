@@ -11,6 +11,15 @@ import Foundation
 class TraktModel {
     
     private let oauth: OAuth!
+    private let consumer: Consumer!
+    
+    private var accessToken: AccessToken? {
+        if let _ = self.accessToken {
+            return self.accessToken
+        } else {
+            return nil
+        }
+    }
     /**
      *  A bool value indicating whether the user is authenticated against the trakt.tv API or not.
      * - returns: Yes if there is an access token saved, otherwise no.
@@ -45,10 +54,23 @@ class TraktModel {
         }
     }
     
-    var tokenExchangeURL: NSURL!
+    var tokenExchangeURL: NSURL! {
+        get {
+            
+            
+            
+            return NSURL(string: "")
+        }
+    }
     
     init() {
+        self.consumer = Consumer(key: ConsumerCredentials.key, secret: ConsumerCredentials.secret)
+        
         self.oauth = OAuth(consumerKey: ConsumerCredentials.key, consumerSecret: ConsumerCredentials.secret)
     }
+    
+//    init(with AccessToken: String) {
+//        self.oauth = OAuth(consumerKey: ConsumerCredentials.key, consumerSecret: ConsumerCredentials.secret)
+//    }
     
 }

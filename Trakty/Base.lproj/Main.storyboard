@@ -1,46 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dhz-uf-FVn">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="lXW-cd-gm9">
+        <!--Main View Controller-->
+        <scene sceneID="6Ek-fg-mAc">
             <objects>
-                <viewController storyboardIdentifier="MainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aCp-6Z-pka" customClass="ViewController" customModule="Trakty" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pdz-v8-v0Y"/>
-                        <viewControllerLayoutGuide type="bottom" id="8Cm-Ip-OYT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tPW-iu-XY4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIA-5p-AG5">
-                                <rect key="frame" x="150" y="323" width="75" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                <navigationController storyboardIdentifier="MainView" id="dhz-uf-FVn" customClass="MainViewController" customModule="Trakty" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <segue destination="Bdf-XE-hB2" kind="presentation" identifier="showLoginViewController" id="Y3V-O2-NoC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0D-3A-9dv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3eK-Dh-zgZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbN-3x-zGk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="27.5" y="-882.5"/>
+            <point key="canvasLocation" x="-126.5" y="-927.5"/>
         </scene>
-        <!--Welcome-->
+        <!--Login View Controller-->
         <scene sceneID="12H-lC-DlD">
             <objects>
-                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yIK-cs-xqq" customClass="LoginViewController" customModule="Trakty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login View Controller" id="yIK-cs-xqq" customClass="LoginViewController" customModule="Trakty" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K5G-68-59a"/>
                         <viewControllerLayoutGuide type="bottom" id="ytf-Lg-bVw"/>
@@ -57,53 +39,59 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiL-z2-zkz">
-                                <rect key="frame" x="72" y="345" width="230" height="38"/>
+                                <rect key="frame" x="72" y="370" width="230" height="38"/>
                                 <animations/>
                                 <color key="backgroundColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="Lsc-GM-otb"/>
+                                    <constraint firstAttribute="height" constant="38" id="RyU-lO-V2P"/>
                                 </constraints>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <action selector="signInTapped:" destination="yIK-cs-xqq" eventType="touchUpInside" id="rGL-gc-0ev"/>
-                                    <segue destination="OgZ-rc-6P3" kind="show" id="nHE-Fb-QZg"/>
+                                    <segue destination="OgZ-rc-6P3" kind="show" identifier="showWebView" id="nHE-Fb-QZg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Trakty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDo-n7-4gV">
-                                <rect key="frame" x="67" y="112" width="240" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trakty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDo-n7-4gV">
+                                <rect key="frame" x="67" y="80" width="240" height="47"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="cWY-DU-Uto"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="33"/>
                                 <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The TV Show Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmx-Ag-sYI">
-                                <rect key="frame" x="67" y="167" width="240" height="21"/>
+                                <rect key="frame" x="67" y="135" width="240" height="21"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="dlc-AX-cbI"/>
+                                    <constraint firstAttribute="height" constant="21" id="GlT-9H-MCj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="819-Dc-zXh">
+                                <rect key="frame" x="169" y="449" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
-                            <constraint firstItem="FiL-z2-zkz" firstAttribute="trailing" secondItem="Sne-ia-bKM" secondAttribute="trailing" id="3BF-cX-1cK"/>
-                            <constraint firstItem="hmx-Ag-sYI" firstAttribute="centerX" secondItem="1wq-Qf-aRM" secondAttribute="centerX" id="543-sF-UhA"/>
-                            <constraint firstItem="UDo-n7-4gV" firstAttribute="trailing" secondItem="hmx-Ag-sYI" secondAttribute="trailing" id="Cfy-cU-nNp"/>
-                            <constraint firstItem="UDo-n7-4gV" firstAttribute="top" secondItem="K5G-68-59a" secondAttribute="bottom" constant="48" id="Gjk-Tb-XjP"/>
-                            <constraint firstItem="Sne-ia-bKM" firstAttribute="centerY" secondItem="1wq-Qf-aRM" secondAttribute="centerY" id="IG4-DK-24L"/>
-                            <constraint firstItem="Sne-ia-bKM" firstAttribute="top" secondItem="hmx-Ag-sYI" secondAttribute="bottom" constant="78" id="IOW-en-caM"/>
-                            <constraint firstItem="hmx-Ag-sYI" firstAttribute="top" secondItem="UDo-n7-4gV" secondAttribute="bottom" constant="8" symbolic="YES" id="Om3-VM-A2h"/>
-                            <constraint firstItem="Sne-ia-bKM" firstAttribute="leading" secondItem="FiL-z2-zkz" secondAttribute="leading" id="S1T-bx-69v"/>
-                            <constraint firstItem="Sne-ia-bKM" firstAttribute="leading" secondItem="1wq-Qf-aRM" secondAttribute="leadingMargin" constant="56" id="Vtw-zA-Kja"/>
-                            <constraint firstItem="hmx-Ag-sYI" firstAttribute="centerX" secondItem="Sne-ia-bKM" secondAttribute="centerX" id="fre-j0-XYd"/>
-                            <constraint firstItem="UDo-n7-4gV" firstAttribute="leading" secondItem="1wq-Qf-aRM" secondAttribute="leadingMargin" constant="51" id="g0i-4C-aiA"/>
-                            <constraint firstItem="UDo-n7-4gV" firstAttribute="leading" secondItem="hmx-Ag-sYI" secondAttribute="leading" id="oSd-KH-qnk"/>
-                            <constraint firstItem="ytf-Lg-bVw" firstAttribute="top" secondItem="FiL-z2-zkz" secondAttribute="bottom" constant="220" id="rMh-Ie-y3i"/>
-                            <constraint firstItem="FiL-z2-zkz" firstAttribute="top" secondItem="Sne-ia-bKM" secondAttribute="bottom" constant="8" symbolic="YES" id="tzL-RF-iWD"/>
+                            <constraint firstItem="819-Dc-zXh" firstAttribute="centerX" secondItem="FiL-z2-zkz" secondAttribute="centerX" id="3hx-vl-aCr"/>
+                            <constraint firstItem="hmx-Ag-sYI" firstAttribute="trailing" secondItem="UDo-n7-4gV" secondAttribute="trailing" id="5ep-eW-KXH"/>
+                            <constraint firstItem="Sne-ia-bKM" firstAttribute="leading" secondItem="1wq-Qf-aRM" secondAttribute="leadingMargin" constant="56" id="D64-EW-d04"/>
+                            <constraint firstItem="FiL-z2-zkz" firstAttribute="leading" secondItem="Sne-ia-bKM" secondAttribute="leading" id="E90-fO-389"/>
+                            <constraint firstItem="FiL-z2-zkz" firstAttribute="trailing" secondItem="Sne-ia-bKM" secondAttribute="trailing" id="Hwz-vB-VPb"/>
+                            <constraint firstItem="FiL-z2-zkz" firstAttribute="top" secondItem="Sne-ia-bKM" secondAttribute="bottom" constant="33" id="Jhd-Bm-ONo"/>
+                            <constraint firstItem="Sne-ia-bKM" firstAttribute="centerY" secondItem="1wq-Qf-aRM" secondAttribute="centerY" id="K7k-df-Qyi"/>
+                            <constraint firstItem="UDo-n7-4gV" firstAttribute="top" secondItem="K5G-68-59a" secondAttribute="bottom" constant="80" id="LKl-Jd-M9R"/>
+                            <constraint firstItem="Sne-ia-bKM" firstAttribute="centerX" secondItem="hmx-Ag-sYI" secondAttribute="centerX" id="T2F-IN-mKc"/>
+                            <constraint firstItem="ytf-Lg-bVw" firstAttribute="top" secondItem="819-Dc-zXh" secondAttribute="bottom" constant="117" id="Xw3-YJ-9Qw"/>
+                            <constraint firstItem="hmx-Ag-sYI" firstAttribute="leading" secondItem="UDo-n7-4gV" secondAttribute="leading" id="XxF-7V-aDl"/>
+                            <constraint firstItem="UDo-n7-4gV" firstAttribute="leading" secondItem="1wq-Qf-aRM" secondAttribute="leadingMargin" constant="51" id="ZxX-yu-DAg"/>
+                            <constraint firstItem="hmx-Ag-sYI" firstAttribute="top" secondItem="UDo-n7-4gV" secondAttribute="bottom" constant="8" symbolic="YES" id="eIa-Ff-ft1"/>
+                            <constraint firstItem="819-Dc-zXh" firstAttribute="top" secondItem="FiL-z2-zkz" secondAttribute="bottom" constant="41" id="gw0-1X-ldu"/>
+                            <constraint firstItem="UDo-n7-4gV" firstAttribute="centerX" secondItem="1wq-Qf-aRM" secondAttribute="centerX" id="o26-Je-RTN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="0FZ-lG-HQy">
@@ -111,18 +99,20 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="h5v-WK-7Ko" kind="unwind" identifier="hideLoginViewController" unwindAction="unwindToViewController:" id="hfe-sB-mrz"/>
+                        <outlet property="activityIndicator" destination="819-Dc-zXh" id="xqK-mT-7Tx"/>
+                        <outlet property="signInButton" destination="FiL-z2-zkz" id="FY4-Id-0oE"/>
+                        <segue destination="h5v-WK-7Ko" kind="unwind" identifier="hideLoginViewController" unwindAction="unwindToMainViewController:" id="hfe-sB-mrz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYV-Oo-GWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="h5v-WK-7Ko" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="826.5" y="-95.5"/>
+            <point key="canvasLocation" x="686.5" y="-1268.5"/>
         </scene>
-        <!--Trakt.tv-->
+        <!--Web View Controller-->
         <scene sceneID="Ive-7b-qfX">
             <objects>
-                <viewController id="OgZ-rc-6P3" customClass="WebViewController" customModule="Trakty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Web View Controller" id="OgZ-rc-6P3" customClass="WebViewController" customModule="Trakty" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g0O-sV-Uuc"/>
                         <viewControllerLayoutGuide type="bottom" id="V9a-LJ-XEl"/>
@@ -131,13 +121,13 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fbn-ry-1J2">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fbn-ry-1J2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ZFq-ty-xDG">
-                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ZFq-ty-xDG">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <animations/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
@@ -145,12 +135,12 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Fbn-ry-1J2" secondAttribute="trailing" id="AWx-L8-a8A"/>
-                            <constraint firstItem="Fbn-ry-1J2" firstAttribute="leading" secondItem="zqS-6U-Cyu" secondAttribute="leading" id="BDZ-ND-BdR"/>
-                            <constraint firstItem="ZFq-ty-xDG" firstAttribute="centerY" secondItem="Fbn-ry-1J2" secondAttribute="centerY" constant="32" id="C7g-6H-CtT"/>
-                            <constraint firstItem="Fbn-ry-1J2" firstAttribute="top" secondItem="g0O-sV-Uuc" secondAttribute="bottom" constant="-64" id="dGB-O7-dO1"/>
-                            <constraint firstItem="Fbn-ry-1J2" firstAttribute="bottom" secondItem="V9a-LJ-XEl" secondAttribute="top" id="fHq-DH-beb"/>
-                            <constraint firstItem="ZFq-ty-xDG" firstAttribute="centerX" secondItem="Fbn-ry-1J2" secondAttribute="centerX" id="v7o-wR-afy"/>
+                            <constraint firstAttribute="trailing" secondItem="Fbn-ry-1J2" secondAttribute="trailing" id="O0B-8I-DrQ"/>
+                            <constraint firstItem="Fbn-ry-1J2" firstAttribute="top" secondItem="g0O-sV-Uuc" secondAttribute="bottom" id="OQp-EA-eXo"/>
+                            <constraint firstItem="Fbn-ry-1J2" firstAttribute="leading" secondItem="zqS-6U-Cyu" secondAttribute="leading" id="SY7-Xd-X2H"/>
+                            <constraint firstItem="ZFq-ty-xDG" firstAttribute="centerX" secondItem="Fbn-ry-1J2" secondAttribute="centerX" id="Y12-iU-N36"/>
+                            <constraint firstItem="ZFq-ty-xDG" firstAttribute="centerY" secondItem="Fbn-ry-1J2" secondAttribute="centerY" id="ooq-y0-h58"/>
+                            <constraint firstItem="V9a-LJ-XEl" firstAttribute="top" secondItem="ZFq-ty-xDG" secondAttribute="bottom" constant="251" id="ydh-mD-gpy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Trakt.tv" id="Hcd-ab-VWo">
@@ -159,11 +149,13 @@
                     <connections>
                         <outlet property="activityIndicator" destination="ZFq-ty-xDG" id="doe-kV-kSl"/>
                         <outlet property="webView" destination="Fbn-ry-1J2" id="vBY-vl-BJd"/>
+                        <segue destination="3t9-Kt-7dz" kind="unwind" identifier="hideWebView" unwindAction="unwindToLoginView:" id="3ER-4h-GgO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T6C-97-Q4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3t9-Kt-7dz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1257.5" y="-95.5"/>
+            <point key="canvasLocation" x="1162.5" y="-1268.5"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="M1W-0I-d52">
@@ -184,12 +176,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNe-8r-sg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="216.5" y="670.5"/>
+            <point key="canvasLocation" x="1102.5" y="-543.5"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="OOs-de-s1a">
             <objects>
-                <viewController storyboardIdentifier="HomeView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o7a-xo-2yh" customClass="ViewController" customModule="Trakty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o7a-xo-2yh" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2tG-OT-Foc"/>
                         <viewControllerLayoutGuide type="bottom" id="Xwn-zX-aKT"/>
@@ -205,12 +197,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="noJ-ue-d7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-184.5" y="670.5"/>
+            <point key="canvasLocation" x="686.5" y="-543.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zLk-CS-kZB">
             <objects>
-                <tabBarController useStoryboardIdentifierAsRestorationIdentifier="YES" id="UMg-1w-IN2" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UMg-1w-IN2" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7vs-DE-WQh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -225,13 +217,14 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWy-BB-aFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-184.5" y="-95.5"/>
+            <point key="canvasLocation" x="270.5" y="-543.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jph-My-sKi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bdf-XE-hB2" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bdf-XE-hB2" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="CMg-6N-wip">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -244,7 +237,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmj-gX-zGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="239.5" y="-95.5"/>
+            <point key="canvasLocation" x="270.5" y="-1268.5"/>
         </scene>
     </scenes>
 </document>

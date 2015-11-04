@@ -13,16 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        
-        
-        
         self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("MainView")
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
+        NSLog("%i", Keychain.save("Hej", forKey: "AKey"))
         return true
     }
 

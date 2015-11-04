@@ -41,16 +41,16 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if let url = request.URL where request.URL!.scheme == "trakty" {
             self.url = url
-//            self.performSegueWithIdentifier("hideWebViewController", sender: self)
+            self.performSegueWithIdentifier("hideWebView", sender: self)
         }
         
         return true
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let viewController = segue.destinationViewController as? ViewController where segue.identifier! == "hideWebViewController" {
-//
-//        }
+        if let viewController = segue.destinationViewController as? LoginViewController {
+            viewController.redirectedTo = self.url
+        }
     }
     
 

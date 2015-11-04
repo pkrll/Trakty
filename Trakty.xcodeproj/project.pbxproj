@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6A264CCB1BEA1D1500BA4A7A /* TraktModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A264CCA1BEA1D1500BA4A7A /* TraktModel.swift */; };
 		6A264CCD1BEA35EA00BA4A7A /* NSURL+SplitQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A264CCC1BEA35EA00BA4A7A /* NSURL+SplitQuery.swift */; };
+		6A87BD4D1BEA742800648CF3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A87BD4C1BEA742800648CF3 /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6A87BD4F1BEAAD5500648CF3 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A87BD4E1BEAAD5500648CF3 /* Keychain.swift */; settings = {ASSET_TAGS = (); }; };
 		6AED671B1BE9441000DE829A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED671A1BE9441000DE829A /* AppDelegate.swift */; };
 		6AED671D1BE9441000DE829A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED671C1BE9441000DE829A /* ViewController.swift */; };
 		6AED67201BE9441000DE829A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AED671E1BE9441000DE829A /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		6A264CCA1BEA1D1500BA4A7A /* TraktModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktModel.swift; sourceTree = "<group>"; };
 		6A264CCC1BEA35EA00BA4A7A /* NSURL+SplitQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+SplitQuery.swift"; sourceTree = "<group>"; };
+		6A87BD4C1BEA742800648CF3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		6A87BD4E1BEAAD5500648CF3 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		6AED67171BE9441000DE829A /* Trakty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trakty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AED671A1BE9441000DE829A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AED671C1BE9441000DE829A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,13 +76,15 @@
 			children = (
 				6AED67341BE94FC900DE829A /* Constants.swift */,
 				6AED671A1BE9441000DE829A /* AppDelegate.swift */,
+				6A87BD4C1BEA742800648CF3 /* MainViewController.swift */,
 				6AED671C1BE9441000DE829A /* ViewController.swift */,
 				6AED672C1BE9467100DE829A /* LoginViewController.swift */,
 				6AED67361BE95E2100DE829A /* WebViewController.swift */,
+				6A264CCA1BEA1D1500BA4A7A /* TraktModel.swift */,
 				6AED672E1BE9487F00DE829A /* OAuth.swift */,
 				6AED67301BE9494C00DE829A /* Consumer.swift */,
 				6AED67321BE94C3B00DE829A /* AccessToken.swift */,
-				6A264CCA1BEA1D1500BA4A7A /* TraktModel.swift */,
+				6A87BD4E1BEAAD5500648CF3 /* Keychain.swift */,
 				6A264CCC1BEA35EA00BA4A7A /* NSURL+SplitQuery.swift */,
 				6AED671E1BE9441000DE829A /* Main.storyboard */,
 				6AED67211BE9441000DE829A /* Assets.xcassets */,
@@ -159,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A264CCD1BEA35EA00BA4A7A /* NSURL+SplitQuery.swift in Sources */,
+				6A87BD4D1BEA742800648CF3 /* MainViewController.swift in Sources */,
 				6AED67311BE9494C00DE829A /* Consumer.swift in Sources */,
 				6AED672D1BE9467100DE829A /* LoginViewController.swift in Sources */,
 				6A264CCB1BEA1D1500BA4A7A /* TraktModel.swift in Sources */,
@@ -166,6 +173,7 @@
 				6AED672F1BE9487F00DE829A /* OAuth.swift in Sources */,
 				6AED67351BE94FC900DE829A /* Constants.swift in Sources */,
 				6AED671B1BE9441000DE829A /* AppDelegate.swift in Sources */,
+				6A87BD4F1BEAAD5500648CF3 /* Keychain.swift in Sources */,
 				6AED67331BE94C3B00DE829A /* AccessToken.swift in Sources */,
 				6AED67371BE95E2100DE829A /* WebViewController.swift in Sources */,
 			);

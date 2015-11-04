@@ -10,8 +10,12 @@ import Foundation
 
 class OAuth {
     
-    private var consumer: Consumer
+    private var consumer: Consumer?
     private var accessToken: AccessToken?
+    
+    init() {
+        
+    }
     
     init(consumerKey: String, consumerSecret: String) {
         self.consumer = Consumer(key: consumerKey, secret: consumerSecret)
