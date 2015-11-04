@@ -9,30 +9,38 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var oauth: OAuth?
+    
+    var trakt: TraktModel!
     
     override func viewDidLoad() {
+        self.trakt = TraktModel()
         super.viewDidLoad()
-        
-        self.oauth = OAuth(
-            consumerKey:    ConsumerCredentials.key,
-            consumerSecret: ConsumerCredentials.secret,
-            redirectURI:    ConsumerCredentials.redirectURI
-        )
     }
 
+    func dada(URL: NSURL) {
+        NSLog("%@", URL);
+    }
+    
     override func viewDidAppear(animated: Bool) {
-        if self.oauth!.accessTokenIsEmpty() {
-            performSegueWithIdentifier("SegueLogin", sender: self)
+        if self.trakt!.userNotAuthenticated {
+            self.performSegueWithIdentifier("showLoginViewController", sender: self)
         } else {
             
         }
-
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let viewController = segue.destinationViewController as? LoginViewController where segue.identifier! == "showLoginViewController" {
+            viewController.url = self.trakt!.authenticationURL
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-}
 
+    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
+//        NSLog("%@", segue.sourceViewController)
+    }
+    
+}

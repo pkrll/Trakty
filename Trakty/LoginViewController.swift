@@ -10,6 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    var url: NSURL?
+    var redirectedTo: NSURL?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,13 +22,21 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signInTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("SegueWebView", sender: self)
+//        self.performSegueWithIdentifier("showWebViewController", sender: self)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let viewController = segue.destinationViewController as? WebViewController where segue.identifier! == "SegueWebView" {
-            viewController.url = NSURL(string: ConsumerCredentials.authURL)
-        }
+//        let destinationView = segue.destinationViewController
+//        let segueIdentifier = segue.identifier
+//        if let viewController = destinationView as? WebViewController where segueIdentifier! == "showWebViewController" {
+//            viewController.url = NSURL(string: "https://saturn-five.github.io/trakty_redirect.html")! //url
+//        }
     }
-
+//    
+//    @IBAction func unwindToLoginView(segue: UIStoryboardSegue) {
+//        if let _ = self.redirectedTo {
+//            self.performSegueWithIdentifier("hideLoginViewController", sender: self)
+//        }
+//    }
+    
 }

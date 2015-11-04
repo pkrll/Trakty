@@ -13,11 +13,11 @@ class OAuth {
     private var consumer: Consumer
     private var accessToken: AccessToken?
     
-    init(consumerKey: String, consumerSecret: String, redirectURI: String) {
+    init(consumerKey: String, consumerSecret: String) {
         self.consumer = Consumer(key: consumerKey, secret: consumerSecret)
     }
     
-    init(consumerKey: String, consumerSecret: String, redirectURI: String, accessToken: String) {
+    init(consumerKey: String, consumerSecret: String, accessToken: String) {
         self.consumer = Consumer(key: consumerKey, secret: consumerSecret)
         self.accessToken = AccessToken(key: accessToken)
     }
