@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6AED67161BE9441000DE829A"
-               BuildableName = "Trakty.app"
-               BlueprintName = "Trakty"
-               ReferencedContainer = "container:Trakty.xcodeproj">
+               BlueprintIdentifier = "6AB747DF1BED61F600A89BD3"
+               BuildableName = "TraktApp.app"
+               BlueprintName = "TraktApp"
+               ReferencedContainer = "container:TraktApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AED67161BE9441000DE829A"
-            BuildableName = "Trakty.app"
-            BlueprintName = "Trakty"
-            ReferencedContainer = "container:Trakty.xcodeproj">
+            BlueprintIdentifier = "6AB747DF1BED61F600A89BD3"
+            BuildableName = "TraktApp.app"
+            BlueprintName = "TraktApp"
+            ReferencedContainer = "container:TraktApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AED67161BE9441000DE829A"
-            BuildableName = "Trakty.app"
-            BlueprintName = "Trakty"
-            ReferencedContainer = "container:Trakty.xcodeproj">
+            BlueprintIdentifier = "6AB747DF1BED61F600A89BD3"
+            BuildableName = "TraktApp.app"
+            BlueprintName = "TraktApp"
+            ReferencedContainer = "container:TraktApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AED67161BE9441000DE829A"
-            BuildableName = "Trakty.app"
-            BlueprintName = "Trakty"
-            ReferencedContainer = "container:Trakty.xcodeproj">
+            BlueprintIdentifier = "6AB747DF1BED61F600A89BD3"
+            BuildableName = "TraktApp.app"
+            BlueprintName = "TraktApp"
+            ReferencedContainer = "container:TraktApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Trakty
+//  TraktApp
 //
-//  Created by Ardalan Samimi on 03/11/15.
+//  Created by Ardalan Samimi on 06/11/15.
 //  Copyright © 2015 Saturn Five. All rights reserved.
 //
 
@@ -12,15 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var dataController: DataController!
+    var viewController: MainViewController!
 
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.dataController = DataController(withEntityName: AccessTokenMeta.name())
+        self.viewController = MainViewController()
         self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("MainView")
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
-        NSLog("%i", Keychain.save("Hej", forKey: "AKey"))
         return true
     }
 
