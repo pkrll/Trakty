@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias OAuthCompletionHandler = (didSucceed: Bool, result: Dictionary<String, String>?, error: NSError?) -> Void
+
 class OAuth {
     
     let consumer: Consumer

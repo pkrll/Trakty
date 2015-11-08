@@ -24,4 +24,14 @@ class AccessToken {
         }
     }
     
+    func token(withSecret: Bool) -> (key: String, secret: String?) {
+        var token: (key: String, secret: String?) = (key: self.key, secret: nil)
+        
+        if (withSecret == true) {
+            token.secret = self.secret
+        }
+        
+        return token
+    }
+    
 }

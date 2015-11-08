@@ -17,10 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.dataController = DataController(withEntityName: AccessTokenMeta.name())
-        self.viewController = MainViewController()
-        self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = viewController
-        self.window?.makeKeyAndVisible()
+//        Keychain.delete("AccessToken")
         return true
     }
 

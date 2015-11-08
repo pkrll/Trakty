@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6AA5E8291BEEADDA00139053 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA5E8281BEEADDA00139053 /* Response.swift */; };
+		6AA5E82B1BEEB1A300139053 /* TraktStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA5E82A1BEEB1A300139053 /* TraktStatusCode.swift */; };
+		6AA5E82D1BEEB5E200139053 /* NSURLResponse+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA5E82C1BEEB5E200139053 /* NSURLResponse+Extensions.swift */; };
 		6AB747E41BED61F600A89BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB747E31BED61F600A89BD3 /* AppDelegate.swift */; };
 		6AB747E91BED61F600A89BD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB747E71BED61F600A89BD3 /* Main.storyboard */; };
 		6AB747EB1BED61F600A89BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AB747EA1BED61F600A89BD3 /* Assets.xcassets */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6AA5E8281BEEADDA00139053 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Models/Response.swift; sourceTree = "<group>"; };
+		6AA5E82A1BEEB1A300139053 /* TraktStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TraktStatusCode.swift; path = Models/TraktStatusCode.swift; sourceTree = "<group>"; };
+		6AA5E82C1BEEB5E200139053 /* NSURLResponse+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLResponse+Extensions.swift"; sourceTree = "<group>"; };
 		6AB747E01BED61F600A89BD3 /* TraktApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraktApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB747E31BED61F600A89BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AB747E81BED61F600A89BD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +95,7 @@
 				6AB748001BED822000A89BD3 /* Views */,
 				6AB747E31BED61F600A89BD3 /* AppDelegate.swift */,
 				6AB748131BEE312500A89BD3 /* NSURL+Extensions.swift */,
+				6AA5E82C1BEEB5E200139053 /* NSURLResponse+Extensions.swift */,
 				6AB7480F1BEE27AA00A89BD3 /* Constants.swift */,
 				6AB747EA1BED61F600A89BD3 /* Assets.xcassets */,
 				6AB747EF1BED61F600A89BD3 /* Info.plist */,
@@ -117,6 +124,8 @@
 				6AB7480B1BEE25FB00A89BD3 /* OAuth.swift */,
 				6AB748151BEE33A000A89BD3 /* Request.swift */,
 				6AB7480D1BEE261900A89BD3 /* Consumer.swift */,
+				6AA5E8281BEEADDA00139053 /* Response.swift */,
+				6AA5E82A1BEEB1A300139053 /* TraktStatusCode.swift */,
 				6AB748091BEE240700A89BD3 /* AccessToken.swift */,
 				6AB747FB1BED689500A89BD3 /* AccessTokenMeta.swift */,
 				6AB748111BEE284700A89BD3 /* Keychain.swift */,
@@ -143,6 +152,7 @@
 				6AB747DC1BED61F600A89BD3 /* Sources */,
 				6AB747DD1BED61F600A89BD3 /* Frameworks */,
 				6AB747DE1BED61F600A89BD3 /* Resources */,
+				6AA5E82E1BEECD0A00139053 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -200,16 +210,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6AA5E82E1BEECD0A00139053 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$((0x$buildNumber))\nbuildNumber=$(($buildNumber + 1))\nbuildNumber=$(printf \"%04X\" $buildNumber)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\n# Set the build number to the count of Git commits\n#buildNumber=$(git rev-list --count HEAD)\n#buildNumber=$(printf \"%04X\" $buildNumber)\n#/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6AB747DC1BED61F600A89BD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AA5E82B1BEEB1A300139053 /* TraktStatusCode.swift in Sources */,
 				6AB7480E1BEE261900A89BD3 /* Consumer.swift in Sources */,
 				6AB748041BEE182600A89BD3 /* LoginViewController.swift in Sources */,
 				6AB748141BEE312500A89BD3 /* NSURL+Extensions.swift in Sources */,
 				6AB748121BEE284700A89BD3 /* Keychain.swift in Sources */,
+				6AA5E8291BEEADDA00139053 /* Response.swift in Sources */,
 				6AB747FD1BED689500A89BD3 /* AccessTokenMeta.swift in Sources */,
+				6AA5E82D1BEEB5E200139053 /* NSURLResponse+Extensions.swift in Sources */,
 				6AB7480A1BEE240700A89BD3 /* AccessToken.swift in Sources */,
 				6AB748081BEE225600A89BD3 /* TraktModel.swift in Sources */,
 				6AB748161BEE33A000A89BD3 /* Request.swift in Sources */,
@@ -373,6 +402,7 @@
 				6AB747F41BED61F600A89BD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

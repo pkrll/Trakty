@@ -30,8 +30,9 @@ extension NSURL {
     }
     /**
      *  Append a query parameters to the query string of a URL.
-     *  - Parameter value: The value of the query item.
-     *  - Parameter key: The field name of the query item.
+     *  - Parameters:
+     *      - value: The value of the query item.
+     *      - key: The field name of the query item.
      *  - Returns: A new NSURL with the updated query string.
      */
     func appendQuery(value: String, forKey key: String) -> NSURL {
@@ -52,7 +53,7 @@ extension NSURL {
     }
     /**
      *  Append multiple query parameters to a URL.
-     *  - Parameter queryString A dictionary with a String key and String value representing the field-value-pair.
+     *  - Parameter queryString: A dictionary with a String key and String value representing the field-value-pair.
      *  - Returns: A new NSURL with the updated query string.
      */
     func appendQueries(queryString: Dictionary<String, String>) -> NSURL {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UINavigationController {
+class MainViewController: UITabBarController {
 
     private var trakt: TraktModel!
     private var currentView: String!
@@ -16,9 +16,12 @@ class MainViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeTrakt()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         self.showInitialViewController()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -26,26 +29,45 @@ class MainViewController: UINavigationController {
 }
 // MARK: - Private Methods
 private extension MainViewController {
-    
+
     func initializeTrakt() {
         self.trakt = TraktModel()
     }
-    
+    /**
+     *  Will check if user is signed in and has authorized app. New users must sign in.
+     */
     func showInitialViewController() {
         if self.trakt?.isUserAuthenticated == false {
-            self.currentView = "LoginView"
+            // Present the LoginViewController modally.
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewControllerWithIdentifier("LoginView") as! LoginViewController
+            controller.delegate = self
+            controller.authDetails = (tokenRequestURL: self.trakt.tokenRequestURL, URLScheme: "trakty")
+            self.presentViewController(controller, animated: true, completion: nil)
         } else {
-            self.currentView = "TabView"
+            self.trakt.request("users/settings", httpMethod: "GET", parameters: nil, completionHandler: { (didSucceed, response) -> Void in
+                if didSucceed {
+                    let statusCode = TraktStatusCode(rawValue: response.status)!
+                    if statusCode.success {
+                        
+                    }
+                    
+                    if let results = response.results {
+                        let username = results["user"]!["username"]
+                        NSLog("\(username)")
+                    }
+                }
+                
+
+                
+            })
         }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier(self.currentView)
-        self.viewControllers = [controller]
     }
     
     func attemptAuthorization(withToken token: String) {
         self.trakt.obtainAccessToken(exchangeToken: token) { (didSucceed, result, error) -> Void in
             if didSucceed {
-                NSLog("Success!")
+                self.dismissViewControllerAnimated(true, completion: nil)
             } else {
                 if let unwrappedError = error {
                     NSLog("Error: %@", unwrappedError)
@@ -56,47 +78,11 @@ private extension MainViewController {
         }
     }
 }
-// MARK: - LoginViewController Methods
-extension MainViewController {
-    /**
-     *  Invoked from LoginViewController, sending user to the token request URL.
-     *  - SeeAlso: freezeOnLoginView:
-     */
-    @IBAction func signInTapped(sender: AnyObject?) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let authenticationURL = self.trakt?.tokenRequestURL
-        let webViewController = storyboard.instantiateViewControllerWithIdentifier("WebView") as! WebViewController
-        webViewController.delegate = self
-        webViewController.loadURL(authenticationURL!, withTargetURLScheme: "trakty")
-        self.presentViewController(webViewController, animated: true) { () -> Void in
-        }
-    }
-    /**
-     *  Disables user interaction with the Login View. Invoked when trying to authenticate user.
-     *  - SeeAlso: webView(_: didFinishRequest: ):
-     */
-    func freezeOnLoginView() {
-        if let viewController = self.topViewController as? LoginViewController {
-            viewController.buttonState = false
-            viewController.indicator.startAnimating()
-        }
-    }
-}
 
-extension MainViewController: WebViewDelegate {
-    /**
-     *  Sent when the web view is loading a URL that uses the designated URL Scheme.
-     *  - Parameters:
-     *      - webView: The web view that is about to load the URL.
-     *      - URL: The content location.
-     */
-    func webView(webView: WebViewController, didLoadURL URL: NSURL) {
-        webView.hideWebView(self)
-        
-        if let token = URL.splitQuery!["code"] as? String {
-            self.freezeOnLoginView()
-            self.attemptAuthorization(withToken: token)
-        }
+extension MainViewController: LoginViewDelegate {
+    
+    func loginView(LoginView: LoginViewController, didFetchRequestToken token: String) {
+        self.attemptAuthorization(withToken: token)
     }
     
 }
