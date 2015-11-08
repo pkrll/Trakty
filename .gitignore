@@ -1,12 +1,5 @@
-
+project.xcworkspace/
+xcuserdata/
+.DS_Store
 *.xcuserstate
-
-*.xcuserstate
-
 Trakty/Constants.swift
-
-Trakty.xcodeproj/project.xcworkspace/xcuserdata/ardalansamimi.xcuserdatad/UserInterfaceState.xcuserstate
-
-Trakty.xcodeproj/project.xcworkspace/xcuserdata/ardalansamimi.xcuserdatad/UserInterfaceState.xcuserstate
-
-Trakty.xcodeproj/project.xcworkspace/xcuserdata/ardalansamimi.xcuserdatad/UserInterfaceState.xcuserstate
