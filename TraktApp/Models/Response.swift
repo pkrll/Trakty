@@ -7,34 +7,43 @@
 //
 import Foundation
 /**
+ *  Dictionary type for Response object.
+ *  - Note: A typealias for [Dictionary<String, AnyObject>].
+ */
+typealias JSONDictionary = [Dictionary<String, AnyObject>]
+/**
  *  This structure encapsulates the response of a URL Request.
  */
 struct Response {
     /**
      *  Status code.
      */
-    var status: Int = 0
+    var statusCode: Int
     /**
      *  Header fields.
      */
-    var headers: Dictionary<String, String> = [:]
+    var allHeaders: Dictionary<String, String>
     /**
-     *  Data sent to the receiver.
+     *  The data response. This object holds the actual result of the request.
      */
-    var results: NSDictionary?
+    var JSONObject: JSONDictionary?
     /**
      *  Errors encountered by the receiver.
      */
     var error: ResponseError?
     
-    init() { }
+    init() {
+        self.statusCode = -1
+        self.allHeaders = [:]
+    }
     
-    init(status: Int, headers: Dictionary<String, String>, results: NSDictionary?, error: ResponseError? = nil) {
-        self.status = status
-        self.headers = headers
-        self.results = results
+    init(statusCode: Int, allHeaders: Dictionary<String, String>, JSONObject: JSONDictionary?, error: ResponseError? = nil) {
+        self.statusCode = statusCode
+        self.allHeaders = allHeaders
+        self.JSONObject = JSONObject
         self.error = error
     }
+
 }
 /**
  *  Errors encountered by the receiver.

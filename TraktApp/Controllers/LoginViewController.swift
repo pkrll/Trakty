@@ -33,6 +33,16 @@ class LoginViewController: UIViewController {
         self.indicator.stopAnimating()
     }
 
+    func signInFailed() {
+        dispatch_async(dispatch_get_main_queue(), {
+            let alertController = UIAlertController(title: "Trakty", message: "Could not authenticate user.", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            self.signInButton.enabled = true
+            self.indicator.stopAnimating()
+        })
+    }
+    
 }
 // MARK: - Web View Delegate
 extension LoginViewController: WebViewDelegate {

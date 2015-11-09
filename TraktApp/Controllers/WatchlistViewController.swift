@@ -8,11 +8,29 @@
 
 import UIKit
 
-class WatchlistViewController: UITableViewController {
+class WatchlistViewController: UITableViewController, TabBarSubView {
 
+    private var watchlistModel: WatchlistModel!
+    
+    func initializeView(trakt: TraktModel) {
+        self.watchlistModel = WatchlistModel(traktModel: trakt)
+        self.tableView.dataSource = self.watchlistModel
+        self.tableView.delegate = self
+        self.watchlistModel.loadData { (success) -> Void in
+            if success {
+                self.reloadData()
+            }
+        }
+    }
+    
+    func reloadData() {
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.title = "Watchlist"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,23 +46,23 @@ class WatchlistViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath)
-
-        if let label = cell.viewWithTag(101) as? UILabel {
-            label.text = "Helo World"
-        }
-
-        return cell
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 1
+//    }
+//
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath)
+//
+//        if let label = cell.viewWithTag(101) as? UILabel {
+//            label.text = "Helo World"
+//        }
+//
+//        return cell
+//    }
 
     /*
     // Override to support conditional editing of the table view.

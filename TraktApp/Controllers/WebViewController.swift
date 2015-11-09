@@ -5,27 +5,27 @@
 //  Created by Ardalan Samimi on 07/11/15.
 //  Copyright © 2015 Saturn Five. All rights reserved.
 //
-
 import UIKit
-
+// MARK: - Protocol Declaration
 protocol WebViewDelegate {
     
     func webView(webView: WebViewController, didLoadURL URL: NSURL)
     
 }
-
+// MARK: - Controller Class
 class WebViewController: UIViewController {
 
+    internal var delegate: WebViewDelegate?
+    // MARK: - Private Members
     private var primaryURL: NSURL?
     private var URLScheme: String?
-    internal var delegate: WebViewDelegate?
     // MARK: - IB Outlets and Actions
     @IBOutlet var webView: UIWebView!
     @IBOutlet var indicator: UIActivityIndicatorView!
     @IBAction func cancelTapped(sender: AnyObject) {
         self.hideWebView(sender)
     }
-    
+    // MARK: - Public Methods
     func loadURL(URL: NSURL, withTargetURLScheme scheme: String) {
         self.primaryURL = URL
         self.URLScheme = scheme
@@ -34,13 +34,13 @@ class WebViewController: UIViewController {
     func hideWebView(sender: AnyObject?) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+    // MARK: - Private Methods
     private func loadURL(URL: NSURL) {
         let request = NSURLRequest(URL: URL)
         self.webView.delegate = self
         self.webView.loadRequest(request)
     }
-        
+    // MARK: - Overridden
     override func viewDidLoad() {
         super.viewDidLoad()
         

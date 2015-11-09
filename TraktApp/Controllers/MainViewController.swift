@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol TabBarSubView {
+    
+    func initializeView(trakt: TraktModel)
+    
+}
+
 class MainViewController: UITabBarController {
 
     private var trakt: TraktModel!
@@ -45,44 +51,30 @@ private extension MainViewController {
             controller.authDetails = (tokenRequestURL: self.trakt.tokenRequestURL, URLScheme: "trakty")
             self.presentViewController(controller, animated: true, completion: nil)
         } else {
-            self.trakt.request("users/settings", httpMethod: "GET", parameters: nil, completionHandler: { (didSucceed, response) -> Void in
-                if didSucceed {
-                    let statusCode = TraktStatusCode(rawValue: response.status)!
-                    if statusCode.success {
-                        
-                    }
-                    
-                    if let results = response.results {
-                        let username = results["user"]!["username"]
-                        NSLog("\(username)")
-                    }
-                }
-                
-
-                
-            })
-        }
-    }
-    
-    func attemptAuthorization(withToken token: String) {
-        self.trakt.obtainAccessToken(exchangeToken: token) { (didSucceed, result, error) -> Void in
-            if didSucceed {
-                self.dismissViewControllerAnimated(true, completion: nil)
-            } else {
-                if let unwrappedError = error {
-                    NSLog("Error: %@", unwrappedError)
-                }
+            var selectedViewController: TabBarSubView? = nil
+            
+            if let topViewController = self.selectedViewController as? UINavigationController, topSubViewController = topViewController.topViewController as? TabBarSubView {
+                selectedViewController = topSubViewController
+            } else if let topViewController = self.selectedViewController as? TabBarSubView {
+                selectedViewController = topViewController
             }
             
-            NSLog("\(didSucceed)")
+            selectedViewController?.initializeView(self.trakt)
         }
     }
+
 }
 
 extension MainViewController: LoginViewDelegate {
     
     func loginView(LoginView: LoginViewController, didFetchRequestToken token: String) {
-        self.attemptAuthorization(withToken: token)
+        self.trakt.obtainAccessToken(exchangeToken: token) { (success, response) -> Void in
+            if success {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            } else {
+                LoginView.signInFailed()
+            }
+        }
     }
-    
+
 }
