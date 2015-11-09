@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias RequestCompletionHandler = (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void
+typealias RequestHandler = (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void
 
 class Request {
     
@@ -54,8 +54,8 @@ class Request {
      *  Add several values to the http header dictionary.
      *  - Parameter values: A dictionary consisting of the value and the name of the http header field.
      */
-    func addValues(values: Dictionary<String, String>) {
-        for (field, value) in values {
+    func addHeaders(headers: Dictionary<String, String>) {
+        for (field, value) in headers {
             self.addValue(value, forHeader: field)
         }
     }
@@ -63,7 +63,7 @@ class Request {
      *  Creates an HTTP request for the specified URL request object, and calls a handler upon completion.
      *  - Parameter completionHandler: The callback function.
      */
-    func execute(completionHandler: RequestCompletionHandler) {
+    func execute(completionHandler: RequestHandler) {
         let session = self.session
         session.dataTaskWithRequest(self.URLRequest, completionHandler: completionHandler).resume()
     }

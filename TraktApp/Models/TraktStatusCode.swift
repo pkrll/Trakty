@@ -14,6 +14,7 @@ import Foundation
  */
 enum TraktStatusCode: Int {
     // Current Trakt.tv API status code
+    case Unknown = 0
     case Success = 200
     case Created = 201
     case Deleted = 204

@@ -10,6 +10,13 @@ import Foundation
 struct TraktEndPoint {
     
     static let usersSettings = users.settings
+    
+    struct auth {
+        
+        static let requestToken = "oauth/authorize"
+        static let exchangeToken = "oauth/token"
+    }
+    
     /**
      *  Users End Points.
      */
@@ -94,7 +101,7 @@ struct TraktEndPoint {
          *  - Note: Possible HTTP methods: ``GET``.
          *  - SeeAlso: [Trakt.tv API documentation](http://docs.trakt.apiary.io/#reference/users/watchlist/get-watchlist)
          */
-        static let watchlist = "users/me/watchlist/"
+        static let watchlist = "users/me/watchlist"
     }
     
 }

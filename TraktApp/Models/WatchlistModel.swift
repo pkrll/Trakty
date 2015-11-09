@@ -20,14 +20,17 @@ class WatchlistModel: NSObject, UITableViewDataSource {
     }
     
     func loadData(completionHandler: (success: Bool) -> Void) {
-        let endPoint = TraktEndPoint.users.watchlist + "shows"
-        self.traktModel.get(endPoint, parameters: nil) { (success, response) -> Void in
-            if success {
-                self.watchlistArray = response.JSONObject!
-            }
-            
-            completionHandler(success: success)
+        let endPoint = ConsumerCredentials.APIBaseURL + "/" + TraktEndPoint.users.watchlist + "/shows"
+        self.traktModel.get(endPoint, parameters: nil) { (operation) -> Void in
+            NSLog("\(operation)")
         }
+//        self.traktModel.get(endPoint, parameters: nil) { (success, response) -> Void in
+//            if success {
+//                self.watchlistArray = response.JSONObject!
+//            }
+//            
+//            completionHandler(success: success)
+//        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

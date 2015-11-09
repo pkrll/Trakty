@@ -68,7 +68,7 @@ private extension MainViewController {
 extension MainViewController: LoginViewDelegate {
     
     func loginView(LoginView: LoginViewController, didFetchRequestToken token: String) {
-        self.trakt.obtainAccessToken(exchangeToken: token) { (success, response) -> Void in
+        self.trakt.obtainAccessToken(exchangeToken: token) { (success) -> Void in
             if success {
                 self.dismissViewControllerAnimated(true, completion: nil)
             } else {

@@ -32,6 +32,8 @@
 		6AB748161BEE33A000A89BD3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB748151BEE33A000A89BD3 /* Request.swift */; };
 		6AB748181BEE497C00A89BD3 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB748171BEE497C00A89BD3 /* WatchlistViewController.swift */; };
 		6AB7481A1BEE4BD000A89BD3 /* ShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB748191BEE4BD000A89BD3 /* ShowDetailsViewController.swift */; };
+		6ADB351A1BF14DFD00700896 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADB35191BF14DFD00700896 /* Error.swift */; };
+		6ADB351C1BF14E3800700896 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADB351B1BF14E3800700896 /* Operation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		6AB748151BEE33A000A89BD3 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Models/OAuth/Request.swift; sourceTree = "<group>"; };
 		6AB748171BEE497C00A89BD3 /* WatchlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchlistViewController.swift; path = Controllers/WatchlistViewController.swift; sourceTree = "<group>"; };
 		6AB748191BEE4BD000A89BD3 /* ShowDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowDetailsViewController.swift; path = Controllers/ShowDetailsViewController.swift; sourceTree = "<group>"; };
+		6ADB35191BF14DFD00700896 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Models/OAuth/Error.swift; sourceTree = "<group>"; };
+		6ADB351B1BF14E3800700896 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operation.swift; path = Models/OAuth/Operation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 				6AB748091BEE240700A89BD3 /* AccessToken.swift */,
 				6AB747FB1BED689500A89BD3 /* AccessTokenMeta.swift */,
 				6AB748111BEE284700A89BD3 /* Keychain.swift */,
+				6ADB35191BF14DFD00700896 /* Error.swift */,
+				6ADB351B1BF14E3800700896 /* Operation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 			files = (
 				6AA5E82B1BEEB1A300139053 /* TraktStatusCode.swift in Sources */,
 				6AB7480E1BEE261900A89BD3 /* Consumer.swift in Sources */,
+				6ADB351A1BF14DFD00700896 /* Error.swift in Sources */,
 				6AB748041BEE182600A89BD3 /* LoginViewController.swift in Sources */,
 				6AB748141BEE312500A89BD3 /* NSURL+Extensions.swift in Sources */,
 				6AB748121BEE284700A89BD3 /* Keychain.swift in Sources */,
@@ -247,6 +254,7 @@
 				6AB747FD1BED689500A89BD3 /* AccessTokenMeta.swift in Sources */,
 				6AA5E82D1BEEB5E200139053 /* NSURLResponse+Extensions.swift in Sources */,
 				6AB7480A1BEE240700A89BD3 /* AccessToken.swift in Sources */,
+				6ADB351C1BF14E3800700896 /* Operation.swift in Sources */,
 				6AB748081BEE225600A89BD3 /* TraktModel.swift in Sources */,
 				6A7324271BEFAF5E001F3E4B /* WatchlistModel.swift in Sources */,
 				6AB748161BEE33A000A89BD3 /* Request.swift in Sources */,
